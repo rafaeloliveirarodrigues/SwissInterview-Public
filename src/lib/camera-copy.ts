@@ -1,0 +1,21 @@
+import type { UiLang } from './landing-i18n';
+export const CAMERA_COPY: Record<string,Partial<Record<UiLang,string>>> = {
+  'Record video locally': {de:'Video lokal aufnehmen',fr:'Enregistrer la vidéo localement',it:'Registra video localmente'},
+  'Also keep a local video of my answer for replay': {de:'Zusätzlich ein lokales Video meiner Antwort zum Abspielen behalten',fr:'Garder aussi une vidéo locale de ma réponse pour la revoir',it:'Conserva anche un video locale della mia risposta da rivedere'},
+  'Stop video recording': {de:'Videoaufnahme stoppen',fr:'Arrêter l’enregistrement vidéo',it:'Ferma registrazione video'},
+  'Replay video': {de:'Video wiedergeben',fr:'Revoir la vidéo',it:'Rivedi video'},
+  'Close replay': {de:'Wiedergabe schliessen',fr:'Fermer la lecture',it:'Chiudi riproduzione'},
+  'Discard video': {de:'Video verwerfen',fr:'Supprimer la vidéo',it:'Elimina video'},
+  'Recording video locally': {de:'Video wird lokal aufgenommen',fr:'Enregistrement vidéo local en cours',it:'Registrazione video locale in corso'},
+  'Local video replay': {de:'Lokale Videowiedergabe',fr:'Lecture vidéo locale',it:'Riproduzione video locale'},
+  'Video recording unavailable. Try another browser or check your camera.': {de:'Videoaufnahme nicht verfügbar. Versuchen Sie einen anderen Browser oder prüfen Sie Ihre Kamera.',fr:'Enregistrement vidéo indisponible. Essayez un autre navigateur ou vérifiez votre caméra.',it:'Registrazione video non disponibile. Prova un altro browser o controlla la telecamera.'},
+  'Video and sound in this replay stay in browser memory only. Leaving or ending the interview deletes them.': {de:'Video und Ton dieser Wiedergabe bleiben nur im Browserspeicher. Beim Verlassen oder Beenden des Interviews werden sie gelöscht.',fr:'La vidéo et le son de cette lecture restent uniquement en mémoire du navigateur. Quitter ou terminer l’entretien les supprime.',it:'Video e audio di questa riproduzione restano solo nella memoria del browser. Uscendo o terminando il colloquio vengono eliminati.'},
+  'Connecting camera…': {de:'Kamera wird verbunden…',fr:'Connexion à la caméra…',it:'Connessione alla telecamera…'},
+  'Retry camera': {de:'Kamera erneut verbinden',fr:'Réessayer la caméra',it:'Riprova la telecamera'},
+  'Start camera preview': {de:'Kameravorschau starten',fr:'Démarrer l’aperçu vidéo',it:'Avvia l’anteprima video'},
+  'Press Start camera preview to display your video.': {de:'Drücken Sie «Kameravorschau starten», um Ihr Video anzuzeigen.',fr:'Appuyez sur «Démarrer l’aperçu vidéo» pour afficher votre vidéo.',it:'Premi «Avvia l’anteprima video» per visualizzare il video.'},
+  'Camera access requires a secure browser connection.': {de:'Kamerazugriff erfordert eine sichere Browserverbindung.',fr:'L’accès à la caméra nécessite une connexion sécurisée.',it:'L’accesso alla telecamera richiede una connessione sicura.'},
+  'Allow camera and microphone access in your browser’s site settings, then try again.': {de:'Erlauben Sie Kamera und Mikrofon in den Website-Einstellungen Ihres Browsers und versuchen Sie es erneut.',fr:'Autorisez la caméra et le microphone dans les paramètres du site, puis réessayez.',it:'Consenti telecamera e microfono nelle impostazioni del sito, poi riprova.'},
+  'Camera unavailable. Close other apps using it, then try again.': {de:'Kamera nicht verfügbar. Schliessen Sie andere Apps, die sie verwenden, und versuchen Sie es erneut.',fr:'Caméra indisponible. Fermez les autres applications qui l’utilisent, puis réessayez.',it:'Telecamera non disponibile. Chiudi le altre app che la usano, poi riprova.'},
+  'Camera or microphone unavailable. Check your devices, then try again.': {de:'Kamera oder Mikrofon nicht verfügbar. Prüfen Sie Ihre Geräte und versuchen Sie es erneut.',fr:'Caméra ou microphone indisponible. Vérifiez vos appareils, puis réessayez.',it:'Telecamera o microfono non disponibile. Controlla i dispositivi, poi riprova.'},
+};

@@ -1,0 +1,17 @@
+ALTER TABLE public.interview_turns ADD COLUMN speech_metrics jsonb;
+CREATE TABLE public.reference_reviews (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), user_id uuid NOT NULL, file_name text NOT NULL, report jsonb NOT NULL, created_at timestamptz NOT NULL DEFAULT now());
+GRANT SELECT, INSERT, DELETE ON public.reference_reviews TO authenticated;
+GRANT ALL ON public.reference_reviews TO service_role;
+ALTER TABLE public.reference_reviews ENABLE ROW LEVEL SECURITY;
+CREATE POLICY reference_owner ON public.reference_reviews FOR ALL TO authenticated USING (user_id = auth.uid()) WITH CHECK (user_id = auth.uid());
+CREATE TABLE public.question_practice (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), user_id uuid NOT NULL, turn_id uuid NOT NULL REFERENCES public.interview_turns(id) ON DELETE CASCADE, answer text NOT NULL, feedback jsonb NOT NULL, speech_metrics jsonb, created_at timestamptz NOT NULL DEFAULT now());
+GRANT SELECT, INSERT, DELETE ON public.question_practice TO authenticated;
+GRANT ALL ON public.question_practice TO service_role;
+ALTER TABLE public.question_practice ENABLE ROW LEVEL SECURITY;
+CREATE POLICY practice_owner ON public.question_practice FOR ALL TO authenticated USING (user_id = auth.uid()) WITH CHECK (user_id = auth.uid() AND EXISTS (SELECT 1 FROM public.interview_turns t WHERE t.id = turn_id AND t.user_id = auth.uid()));
+CREATE TABLE public.rav_applications (id uuid PRIMARY KEY DEFAULT gen_random_uuid(), user_id uuid NOT NULL, prep_id uuid REFERENCES public.preps(id) ON DELETE SET NULL, application_date date NOT NULL, company text NOT NULL, role text NOT NULL, method text NOT NULL DEFAULT 'Elektronisch', street text NOT NULL DEFAULT '', street_number text NOT NULL DEFAULT '', po_box text NOT NULL DEFAULT '', country text NOT NULL DEFAULT 'Schweiz', postal_city text NOT NULL DEFAULT '', contact text NOT NULL DEFAULT '', email text NOT NULL DEFAULT '', phone text NOT NULL DEFAULT '', job_url text NOT NULL DEFAULT '', rav_assigned boolean NOT NULL DEFAULT false, workload text NOT NULL DEFAULT 'Vollzeit', outcome text NOT NULL DEFAULT 'Noch offen', created_at timestamptz NOT NULL DEFAULT now());
+GRANT SELECT, INSERT, UPDATE, DELETE ON public.rav_applications TO authenticated;
+GRANT ALL ON public.rav_applications TO service_role;
+ALTER TABLE public.rav_applications ENABLE ROW LEVEL SECURITY;
+CREATE POLICY rav_owner ON public.rav_applications FOR ALL TO authenticated USING (user_id = auth.uid()) WITH CHECK (user_id = auth.uid() AND (prep_id IS NULL OR EXISTS (SELECT 1 FROM public.preps p WHERE p.id = prep_id AND p.user_id = auth.uid())));
+CREATE INDEX rav_user_date ON public.rav_applications(user_id, application_date);

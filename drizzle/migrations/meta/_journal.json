@@ -1,0 +1,55 @@
+{
+  "version": "7",
+  "dialect": "postgresql",
+  "entries": [
+    {
+      "idx": 0,
+      "version": "7",
+      "when": 1790151507813,
+      "tag": "0000_interview_prep_core",
+      "breakpoints": true
+    },
+    {
+      "idx": 1,
+      "version": "7",
+      "when": 1792843678012,
+      "tag": "0001_v2_security_and_swiss_review",
+      "breakpoints": true
+    },
+    {
+      "idx": 2,
+      "version": "7",
+      "when": 1792845585295,
+      "tag": "0002_v2_1_credits_promo_language",
+      "breakpoints": true
+    },
+    {
+      "idx": 3,
+      "version": "7",
+      "when": 1792845596286,
+      "tag": "0003_lock_refund_fn",
+      "breakpoints": true
+    },
+    {
+      "idx": 4,
+      "version": "7",
+      "when": 1792853209547,
+      "tag": "0004_swiss_career_tools",
+      "breakpoints": true
+    },
+    {
+      "idx": 5,
+      "version": "7",
+      "when": 1793367645178,
+      "tag": "0005_privacy_compliance",
+      "breakpoints": true
+    },
+    {
+      "idx": 6,
+      "version": "7",
+      "when": 1793916952639,
+      "tag": "0006_bmc_match_verified_auth_email",
+      "breakpoints": true
+    }
+  ]
+}

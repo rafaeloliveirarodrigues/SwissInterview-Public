@@ -1,0 +1,9 @@
+import { z } from 'zod';
+export const referenceSchema = z.object({ summary: z.string(), passages: z.array(z.object({ quote: z.string(), interpretation: z.string(), concern: z.enum(['low','medium','high']), context: z.string(), interviewResponse: z.string() })), omissions: z.array(z.string()), nextSteps: z.array(z.string()) });
+export type ReferenceReview = z.infer<typeof referenceSchema>;
+export const practiceFeedbackSchema = z.object({ score: z.number(), whatWorked: z.string(), whatToFix: z.string(), strongerAnswer: z.string() });
+export type PracticeFeedback = z.infer<typeof practiceFeedbackSchema>;
+const date = z.string().regex(/^\d{4}-\d{2}-\d{2}$/).refine(v => { const d = new Date(`${v}T12:00:00Z`); return !Number.isNaN(d.getTime()) && d.toISOString().slice(0,10) === v; }, 'Invalid date');
+export const ravSchema = z.object({ id: z.string().uuid().optional(), prep_id: z.string().uuid().nullable().default(null), application_date: date, company: z.string().trim().min(1).max(100), role: z.string().trim().min(1).max(100), method: z.enum(['Elektronisch','Brieflich','Persönlich','Telefonisch']), street: z.string().max(200), street_number: z.string().max(30), po_box: z.string().max(30), country: z.string().max(100), postal_city: z.string().max(100), contact: z.string().max(100), email: z.string().max(100).refine(v => !v || /^[^\s@]+@[^\s@]+\.[^\s@]+$/.test(v), 'Invalid email'), phone: z.string().max(100), job_url: z.string().max(2000).refine(v => !v || /^https?:\/\//i.test(v), 'Use an https:// job link'), rav_assigned: z.boolean(), workload: z.enum(['Vollzeit','Teilzeit']), outcome: z.enum(['Vorstellungsgespräch','Noch offen','Anstellung','Absage']) });
+export type RavApplication = z.infer<typeof ravSchema>;
+export const speechInputSchema = z.object({ transcript: z.string().max(10000), durationSeconds: z.number().positive().max(3600), language: z.string() });
