@@ -48,7 +48,7 @@ Hosting elsewhere requires independently configured services and a compatible se
 
 [PolyForm Noncommercial License 1.0.0](./LICENSE).
 
-You may copy, share, study and adapt this code for non-commercial purposes only. Commercial use requires written permission from the author (rafaelrodriguesedp@gmail.com). Third-party dependencies retain their own licences. This is source-available under a noncommercial licence, not an OSI-approved open-source licence.
+You may copy, share, study and adapt this code for non-commercial purposes only. Commercial use requires written permission from the author (rafaeljoaquimrodrigues@hotmail.com). Third-party dependencies retain their own licences. This is source-available under a noncommercial licence, not an OSI-approved open-source licence.
 
 ## Public source snapshot
 
